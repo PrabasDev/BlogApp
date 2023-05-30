@@ -10,7 +10,9 @@
             <h4>{{titulo}}</h4>
             <p>{{descricao}}</p>
             <small>Data: {{data}}</small><br>
-            <span class="badge text-bg-success">{{categoria.nome}}</span>
+            <span class="badge text-bg-success">{{categoria.nome}}</span> <br>
+            <a href="/admin/postagens/edit/{{_id}}"><button class="btn btn-success mt-3">Editar postagem</button></a>
+            <a href="/admin/postagens/deletar/{{_id}}"><button class="btn btn-danger mt-3">Deletar</button></a>
         </div>
     </div>
 {{else}}
