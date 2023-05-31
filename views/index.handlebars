@@ -1,0 +1,31 @@
+<div class="jumbotron mt-4">
+  <h1 class="display-4">Bem-vindo ao Blog App!</h1>
+  <p class="lead">Este é um simples Blog desenvolvido com Node.js + Express + MongoDB</p>
+  <hr class="my-4">
+  <p>Aqui você vai ler sobre as novidades do mundo da computação e mais!</p>
+  <p class="lead">
+    <a class="btn btn-success btn-lg" href="#" role="button">Crie uma conta</a>
+  </p>
+</div>
+
+<hr>
+
+<h2>Postagens recentes: </h2>
+
+{{#each postagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <a href="/postagens/{{slug}}">
+            <button class="btn btn-success">Leia Mais</button>
+        </a>
+        <hr>
+        <small>Data da Publicação: {{data}}</small><br>
+        <span class="badge text-bg-success">{{categoria.nome}}</span> 
+    </div>
+</div>
+{{else}}
+    <h5>Nenhuma Postagem :(</h5>   
+{{/each}}
