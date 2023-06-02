@@ -28,18 +28,28 @@ module.exports = function(passport){
 
     }))
 
-    passport.serializeUser((usuario, done) =>{
-        
-        done(null, usuario.id)
+    passport.serializeUser(function(usuario, cb) {
+        process.nextTick(function() {
+          return cb(null, {
+            
+            id: usuario.id,
 
-    })
+            nome: usuario.nome,
+
+            eAdmin: usuario.eAdmin,
+
+            email: usuario.email,
+
+          });
+        });
+      });
 
 
-    passport.deserializeUser((id, done)=>{
-        Usuario.findById(id, (err, usuario)=>{
-            done(err, usuario)
-        })
-    })
+      passport.deserializeUser(function(usuario, cb) {
+        process.nextTick(function() {
+          return cb(null, usuario);
+        });
+      });
 
 
 
